@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain for sale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/doodle/48/internet--v1.png">
+    <style>
+        :root {
+            --text-color: #ffff;
+            --shine-color: rgba(255, 255, 255, 0.2);
+            --shine-effect: linear-gradient(var(120deg),
+                    transparent,
+                    var(--shine-color),
+                    transparent);
+            --shine-transition: all 0.5s ease-in-out;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-image: url('./night.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #domain-sale {
+            color: var(--text-color);
+            font-size: calc(1.075rem + 2.7vw);
+            padding: 0.2rem 1.5rem;
+            background-color: #dc3545;
+            border-radius: 4px;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        #domain-name {
+            font-size: calc(1.575rem + 3vw);
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        #query-link {
+            background-color: #28a745;
+            border: none;
+            padding: 0.2rem 1rem;
+            border-radius: 4px;
+            font-size: calc(1.075rem + 0.5vw);
+            cursor: pointer;
+            color: var(--text-color);
+            position: relative;
+            width: fit-content;
+            overflow: hidden;
+            margin: 0;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        #query-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--shine-effect);
+            left: -100%;
+            transition: var(--shine-transition);
+        }
+
+        #query-link:hover {
+            box-shadow: var(--btn-shadow);
+        }
+
+        #query-link:hover::before {
+            left: 100%;
+        }
+
+        #photo-credit {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 400;
+            color: #4d4d4d;
+        }
+
+        @media screen and (max-width: 425px) {
+            body {
+                background-position-x: 75%;
+            }
+
+            #domain-sale {
+                font-size: 16px;
+            }
+
+            #domain-name {
+                font-size: 20px;
+            }
+
+            #query-link {
+                font-size: 14px;
+            }
+
+            main {
+                gap: 1rem;
+            }
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            cursor: alias;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1 id="domain-sale">For Sale!</h1>
+        <h2 id="domain-name"><%= htmlWebpackPlugin.options.domain_name %></h2>
+        <a href="<%= htmlWebpackPlugin.options.form_link %>" id="query-link">Send query</a>
+        <a title="Photo by Felix Mittermeier" id="photo-credit" target="_blank" target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.pexels.com/photo/silhouette-of-person-under-blue-and-purple-sky-957040">BG credits</a>
+    </main>
+</body>
+</html>
